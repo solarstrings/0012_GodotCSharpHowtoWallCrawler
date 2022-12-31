@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/WallCrawler/Gfx/Crawler.png" type="Texture" id=2]
+
+[sub_resource type="CSharpScript" id=2]
+resource_name = "WallCrawler"
+script/source = "using Godot;
+using System;
+
+public class WallCrawler : KinematicBody2D
+{
+    // Declare member variables here. Examples:
+    // private int a = 2;
+    // private string b = \"text\";
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        
+    }
+
+//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+//  public override void _Process(float delta)
+//  {
+//      
+//  }
+}
+"
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="WallCrawler" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
+collision_mask = 0
+script = SubResource( 2 )
+CrawlDirection = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
